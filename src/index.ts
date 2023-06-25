@@ -8,9 +8,11 @@ const router = new Router()
 app.use(router.routes()).use(router.allowedMethods()).use(koaBody())
 
 router.all('/feishu(.*)', koaBody(), ctx => {
-  console.log(ctx.request.url)
-  console.log(111, ctx.request.body)
-  console.log(222, ctx.request.query)
+  console.log('--------')
+  console.log('url', ctx.request.url)
+  console.log('body', ctx.request.body)
+  console.log('query', JSON.stringify(ctx.request.query))
+  console.log('--------')
   // => POST body
   ctx.body = ctx.request.body
 })
